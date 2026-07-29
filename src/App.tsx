@@ -20,10 +20,13 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const { pathname } = useLocation()
+  const isBareLayout = pathname === '/login' || pathname.startsWith('/dashboard')
+
   return (
     <div className="flex min-h-screen flex-col">
       <ScrollToTop />
-      <Navbar />
+      {!isBareLayout && <Navbar />}
       <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -36,7 +39,7 @@ export default function App() {
           <Route path="/dashboard/parent" element={<ParentDashboard />} />
         </Routes>
       </main>
-      <Footer />
+      {!isBareLayout && <Footer />}
     </div>
   )
 }

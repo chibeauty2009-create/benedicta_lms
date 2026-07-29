@@ -57,7 +57,7 @@ export default function Login() {
   }
 
   return (
-    <section className="grid min-h-[calc(100vh-73px)] lg:grid-cols-2">
+    <section className="grid min-h-screen lg:grid-cols-2">
       {/* Branding panel */}
       <div className="relative hidden overflow-hidden bg-ink-900 px-12 py-16 text-paper lg:flex lg:flex-col lg:justify-between">
         <div className="pointer-events-none absolute inset-0 bg-ledger-lines" />
