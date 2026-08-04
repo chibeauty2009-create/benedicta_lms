@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import {
   ArrowLeft,
   Eye,
@@ -58,12 +59,18 @@ export default function Login() {
 
   return (
     <section className="grid min-h-screen lg:grid-cols-2">
-      {/* Branding panel */}
+      {/* Branding panel — desktop only */}
       <div className="relative hidden overflow-hidden bg-ink-900 px-12 py-16 text-paper lg:flex lg:flex-col lg:justify-between">
         <div className="pointer-events-none absolute inset-0 bg-ledger-lines" />
         <div className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-brass-400/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 right-0 h-80 w-80 rounded-full bg-brass-400/5 blur-3xl" />
 
-        <div className="relative">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="relative"
+        >
           <span className="flex h-11 w-11 items-center justify-center rounded-full bg-brass-400 font-display text-sm font-semibold text-ink-900">
             BC
           </span>
@@ -74,9 +81,14 @@ export default function Login() {
             Sign in to {school.name}'s platform to manage classes, track progress, or stay close to
             your child's academic year — whichever role you sign in as.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="relative grid grid-cols-2 gap-4">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+          className="relative grid grid-cols-2 gap-4"
+        >
           {dashboards.map((d) => {
             const Icon = roleIcons[d.role]
             return (
@@ -89,12 +101,25 @@ export default function Login() {
               </div>
             )
           })}
-        </div>
+        </motion.div>
       </div>
 
       {/* Form panel */}
       <div className="flex items-center justify-center bg-paper px-6 py-16">
-        <div className="w-full max-w-sm">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="w-full max-w-sm"
+        >
+          {/* Compact brand mark for mobile, where the branding panel is hidden */}
+          <div className="mb-8 flex items-center gap-3 lg:hidden">
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-ink-900 font-display text-xs font-semibold text-brass-300">
+              BC
+            </span>
+            <span className="font-display text-base font-semibold text-ink-900">{school.name}</span>
+          </div>
+
           {mode === 'login' ? (
             <>
               <span className="eyebrow">Login · Page 04 / 8</span>
@@ -195,6 +220,11 @@ export default function Login() {
                   {submitting ? 'Signing in…' : 'Sign In'}
                 </button>
               </form>
+
+              <p className="mt-8 flex items-center justify-center gap-2 text-xs text-ink-400">
+                <ShieldCheck size={14} className="text-brass-500" />
+                Your login is kept private and secure.
+              </p>
             </>
           ) : (
             <>
@@ -254,7 +284,7 @@ export default function Login() {
               )}
             </>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

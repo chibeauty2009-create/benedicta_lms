@@ -1,11 +1,11 @@
-import { useState, type ReactNode, type ComponentType } from 'react'
+import { useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-import { Bell, LogOut, Menu, Search, X } from 'lucide-react'
+import { Bell, LogOut, Menu, Search, X, type LucideIcon } from 'lucide-react'
 import { school } from '@/data/content'
 
 export interface DashboardNavItem {
   label: string
-  icon: ComponentType<{ size?: number }>
+  icon: LucideIcon
 }
 
 interface DashboardLayoutProps {
