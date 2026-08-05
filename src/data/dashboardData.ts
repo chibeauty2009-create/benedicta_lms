@@ -111,6 +111,148 @@ export const studentData = {
   },
 }
 
+// Student: Subjects & Materials.
+export const studentSubjects = [
+  { id: 1, name: 'Mathematics', teacher: 'Mr. Femi Adisa' },
+  { id: 2, name: 'English Language', teacher: 'Mr. Okafor' },
+  { id: 3, name: 'Biology', teacher: 'Mrs. Ibe' },
+  { id: 4, name: 'Chemistry', teacher: 'Mrs. Bello' },
+  { id: 5, name: 'Physics', teacher: 'Mr. Danladi' },
+  { id: 6, name: 'Government', teacher: 'Mrs. Okonkwo' },
+]
+
+export const studentMaterials = [
+  { id: 1, subject: 'Mathematics', title: 'Quadratic Equations — Worked Examples', type: 'Note', date: 'Aug 3, 2026' },
+  { id: 2, subject: 'Mathematics', title: 'Introduction to Trigonometry', type: 'Note', date: 'Jul 29, 2026' },
+  { id: 3, subject: 'Biology', title: 'Cell Structure Revision Notes', type: 'Note', date: 'Jul 27, 2026' },
+  { id: 4, subject: 'English Language', title: 'Comprehension Passage Practice Set', type: 'Note', date: 'Jul 24, 2026' },
+  { id: 5, subject: 'Chemistry', title: 'Periodic Table Trends Summary', type: 'Note', date: 'Jul 20, 2026' },
+]
+
+// Student: Assignment Submission.
+export const studentAssignments = [
+  { id: 1, subject: 'English Language', title: 'Essay: My Aspiration in Life', due: 'Aug 9, 2026', status: 'Not Submitted' },
+  { id: 2, subject: 'Mathematics', title: 'Assignment 4: Simultaneous Equations', due: 'Aug 8, 2026', status: 'Not Submitted' },
+  { id: 3, subject: 'Biology', title: 'Diagram Labelling — The Human Heart', due: 'Aug 3, 2026', status: 'Submitted' },
+  { id: 4, subject: 'Chemistry', title: 'Assignment 2: Balancing Equations', due: 'Jul 28, 2026', status: 'Graded', score: '18/20' },
+]
+
+// Student: Online Quizzes — each with a small set of practice questions.
+export const studentQuizzes = [
+  {
+    id: 1,
+    subject: 'Mathematics',
+    title: 'Second CA Quiz — Algebra',
+    status: 'Available',
+    questions: [
+      { id: 1, text: 'Solve for x: 2x + 6 = 14', options: ['x = 2', 'x = 4', 'x = 6', 'x = 8'], answer: 1 },
+      { id: 2, text: 'What is the value of 3² + 4²?', options: ['12', '25', '49', '7'], answer: 1 },
+      { id: 3, text: 'Simplify: 5x - 2x + 3x', options: ['6x', '8x', '10x', '4x'], answer: 0 },
+    ],
+  },
+  {
+    id: 2,
+    subject: 'Biology',
+    title: 'Cell Structure Practice Quiz',
+    status: 'Available',
+    questions: [
+      { id: 1, text: 'Which organelle is the "powerhouse of the cell"?', options: ['Nucleus', 'Ribosome', 'Mitochondrion', 'Golgi body'], answer: 2 },
+      { id: 2, text: 'Which structure controls what enters and leaves the cell?', options: ['Cell wall', 'Cell membrane', 'Cytoplasm', 'Vacuole'], answer: 1 },
+    ],
+  },
+  { id: 3, subject: 'English Language', title: 'Comprehension Quiz 1', status: 'Completed', score: '8/10' },
+]
+
+// Student: CBT Examinations.
+export const studentExams = [
+  { id: 1, subject: 'All Subjects', title: 'Second Term Mid-Term Test', date: 'Aug 11, 2026', duration: 90, status: 'Upcoming' },
+  {
+    id: 2,
+    subject: 'Mathematics',
+    title: 'Mock WASSCE — Paper 1',
+    date: 'Aug 6, 2026',
+    duration: 60,
+    status: 'Available',
+    questions: [
+      { id: 1, text: 'If y = 3x + 2 and x = 4, find y.', options: ['10', '12', '14', '16'], answer: 2 },
+      { id: 2, text: 'What is 15% of 200?', options: ['20', '25', '30', '35'], answer: 2 },
+      { id: 3, text: 'Which of these is a prime number?', options: ['21', '27', '29', '33'], answer: 2 },
+      { id: 4, text: 'Convert 0.75 to a fraction.', options: ['3/5', '3/4', '4/5', '2/3'], answer: 1 },
+    ],
+  },
+  { id: 3, subject: 'English Language', title: 'English Language CBT', date: 'Jul 30, 2026', duration: 60, status: 'Completed', score: '72%' },
+]
+
+// Student: Attendance Records — this term, day by day (most recent first).
+export const studentAttendance = {
+  summary: [
+    { label: 'Attendance Rate', value: '96%' },
+    { label: 'Days Present', value: '54' },
+    { label: 'Days Absent', value: '2' },
+    { label: 'Days Late', value: '1' },
+  ],
+  records: [
+    { id: 1, date: 'Aug 4, 2026', status: 'Present' },
+    { id: 2, date: 'Aug 3, 2026', status: 'Present' },
+    { id: 3, date: 'Jul 31, 2026', status: 'Late' },
+    { id: 4, date: 'Jul 30, 2026', status: 'Present' },
+    { id: 5, date: 'Jul 29, 2026', status: 'Absent' },
+    { id: 6, date: 'Jul 28, 2026', status: 'Present' },
+    { id: 7, date: 'Jul 25, 2026', status: 'Present' },
+  ],
+}
+
+// Student: Report Cards & Results.
+export const studentReportCards = [
+  {
+    id: 1,
+    term: 'Second Term, 2025/2026',
+    average: 78,
+    position: '4th of 71',
+    status: 'Available',
+    subjects: [
+      { subject: 'Mathematics', score: 82 },
+      { subject: 'English Language', score: 75 },
+      { subject: 'Biology', score: 80 },
+      { subject: 'Chemistry', score: 71 },
+      { subject: 'Physics', score: 76 },
+    ],
+  },
+  {
+    id: 2,
+    term: 'First Term, 2025/2026',
+    average: 74,
+    position: '7th of 70',
+    status: 'Available',
+    subjects: [
+      { subject: 'Mathematics', score: 77 },
+      { subject: 'English Language', score: 72 },
+      { subject: 'Biology', score: 76 },
+      { subject: 'Chemistry', score: 69 },
+      { subject: 'Physics', score: 73 },
+    ],
+  },
+]
+
+// Student: Notifications.
+export const studentNotifications = [
+  { id: 1, title: 'New assignment posted — English Language', time: '20 min ago', read: false },
+  { id: 2, title: 'CBT Mock Exam scheduled for Friday', time: '2 hrs ago', read: false },
+  { id: 3, title: 'Mathematics quiz score released: 17/20', time: 'Yesterday', read: false },
+  { id: 4, title: 'Second term report card is now available', time: '2 days ago', read: true },
+  { id: 5, title: 'New resource: Biology revision notes', time: '3 days ago', read: true },
+  { id: 6, title: 'Attendance marked present today', time: '4 days ago', read: true },
+]
+
+// Student: Learning Resources.
+export const studentResources = [
+  { id: 1, subject: 'Mathematics', title: 'Second Term Scheme of Work', fileType: 'PDF', size: '210 KB' },
+  { id: 2, subject: 'Biology', title: 'Cell Structure Revision Pack', fileType: 'PDF', size: '1.4 MB' },
+  { id: 3, subject: 'English Language', title: 'Essay Writing Guide', fileType: 'PDF', size: '640 KB' },
+  { id: 4, subject: 'Chemistry', title: 'Periodic Table (Printable)', fileType: 'PDF', size: '180 KB' },
+  { id: 5, subject: 'Physics', title: 'Formula Sheet — Mechanics', fileType: 'PDF', size: '95 KB' },
+]
+
 // Admin: school-wide attendance overview, one row per class.
 export const adminAttendance = {
   date: 'Wednesday, August 5, 2026',
@@ -142,6 +284,116 @@ export const teacherRoster = [
   { id: 6, name: 'Fatima Suleiman' },
   { id: 7, name: 'Emeka Chukwu' },
   { id: 8, name: 'Blessing Udo' },
+]
+
+// Teacher: Notes & Assignments already shared with classes.
+export const teacherMaterials = [
+  { id: 1, title: 'Quadratic Equations — Worked Examples', type: 'Note', cls: 'SS2 Gold', date: 'Aug 3, 2026' },
+  { id: 2, title: 'Assignment 4: Simultaneous Equations', type: 'Assignment', cls: 'SS1 Silver', date: 'Aug 1, 2026', due: 'Aug 8, 2026' },
+  { id: 3, title: 'Introduction to Trigonometry', type: 'Note', cls: 'SS3', date: 'Jul 29, 2026' },
+  { id: 4, title: 'Assignment 3: Algebraic Fractions', type: 'Assignment', cls: 'SS2 Gold', date: 'Jul 25, 2026', due: 'Aug 1, 2026' },
+]
+
+export const teacherMaterialClasses = ['SS1 Silver', 'SS2 Gold', 'SS3']
+
+// Teacher: Quizzes & Exams the teacher has created.
+export const teacherQuizzes = [
+  { id: 1, title: 'Second CA Quiz — Algebra', cls: 'SS2 Gold', questions: 20, status: 'Published' },
+  { id: 2, title: 'Trigonometry Practice Quiz', cls: 'SS3', questions: 15, status: 'Draft' },
+  { id: 3, title: 'Mock WASSCE — Paper 1', cls: 'SS3', questions: 50, status: 'Published' },
+  { id: 4, title: 'First CA Quiz — Number Bases', cls: 'SS1 Silver', questions: 10, status: 'Closed' },
+]
+
+// Teacher: exams awaiting online marking, each with student submissions.
+export const teacherMarkingExams = [
+  {
+    id: 1,
+    title: 'Mock WASSCE — Paper 1',
+    cls: 'SS3',
+    submissions: [
+      { id: 1, name: 'Chidinma Eze', submitted: true, score: null as number | null },
+      { id: 2, name: 'Emeka Chukwu', submitted: true, score: null as number | null },
+      { id: 3, name: 'Blessing Udo', submitted: true, score: 78 as number | null },
+      { id: 4, name: 'Fatima Suleiman', submitted: false, score: null as number | null },
+    ],
+  },
+  {
+    id: 2,
+    title: 'Second CA Quiz — Algebra',
+    cls: 'SS2 Gold',
+    submissions: [
+      { id: 5, name: 'Kelechi Obi', submitted: true, score: null as number | null },
+      { id: 6, name: 'David Okon', submitted: true, score: 15 as number | null },
+    ],
+  },
+]
+
+// Teacher: assignment submissions awaiting grading + comments.
+export const teacherGrading = [
+  { id: 1, student: 'Chidinma Eze', assignment: 'Assignment 4: Simultaneous Equations', cls: 'SS1 Silver' },
+  { id: 2, student: 'Tobi Alade', assignment: 'Assignment 4: Simultaneous Equations', cls: 'SS1 Silver' },
+  { id: 3, student: 'Amara Nwachukwu', assignment: 'Assignment 3: Algebraic Fractions', cls: 'SS2 Gold' },
+  { id: 4, student: 'David Okon', assignment: 'Assignment 3: Algebraic Fractions', cls: 'SS2 Gold' },
+]
+
+// Teacher: report cards for the teacher's own classes.
+export const teacherReportClasses = [
+  { id: 1, cls: 'SS1 Silver', term: 'Second Term, 2025/2026', generated: 74, total: 74, status: 'Ready' },
+  { id: 2, cls: 'SS2 Gold', term: 'Second Term, 2025/2026', generated: 40, total: 68, status: 'Pending' },
+  { id: 3, cls: 'SS3', term: 'Second Term, 2025/2026', generated: 0, total: 71, status: 'Not Started' },
+]
+
+// Teacher: performance analytics.
+export const teacherPerformance = {
+  bySubjectClass: {
+    label: 'Average score by class, Mathematics',
+    data: [
+      { label: 'SS1 Silver', value: 74 },
+      { label: 'SS2 Gold', value: 78 },
+      { label: 'SS3', value: 69 },
+    ],
+  },
+  top: [
+    { id: 1, name: 'Chidinma Eze', cls: 'SS3', average: 92 },
+    { id: 2, name: 'David Okon', cls: 'SS1 Silver', average: 89 },
+    { id: 3, name: 'Kelechi Obi', cls: 'SS2 Gold', average: 87 },
+  ],
+  bottom: [
+    { id: 1, name: 'Emeka Chukwu', cls: 'SS3', average: 51 },
+    { id: 2, name: 'Blessing Udo', cls: 'SS3', average: 54 },
+    { id: 3, name: 'Fatima Suleiman', cls: 'SS2 Gold', average: 58 },
+  ],
+}
+
+// Teacher: parent messaging inbox.
+export const teacherConversations = [
+  {
+    id: 1,
+    parent: 'Mrs. Adaeze Okonkwo',
+    student: 'Chidinma Eze',
+    unread: true,
+    messages: [
+      { id: 1, from: 'parent', text: 'Good evening, how did Chidinma do in the last quiz?', time: '5:12 PM' },
+      { id: 2, from: 'teacher', text: 'Good evening ma. She scored 18/20 — one of the best in class.', time: '5:20 PM' },
+    ],
+  },
+  {
+    id: 2,
+    parent: 'Mr. Kunle Alade',
+    student: 'Tobi Alade',
+    unread: false,
+    messages: [
+      { id: 1, from: 'parent', text: 'Please can Tobi get extra practice sheets for algebra?', time: 'Yesterday' },
+      { id: 2, from: 'teacher', text: 'Sure, I\u2019ll upload extra sheets to his class page today.', time: 'Yesterday' },
+    ],
+  },
+  {
+    id: 3,
+    parent: 'Mrs. Ifeoma Obi',
+    student: 'Kelechi Obi',
+    unread: true,
+    messages: [{ id: 1, from: 'parent', text: 'Kelechi missed the assignment deadline, can he still submit?', time: '2 days ago' }],
+  },
 ]
 
 // Admin: People — Students, Teachers & Parents.

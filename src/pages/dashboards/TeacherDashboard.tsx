@@ -1,3 +1,4 @@
+import { type ReactNode } from 'react'
 import {
   Award,
   BarChart3,
@@ -15,18 +16,35 @@ import CapabilityCard from '@/components/dashboard/CapabilityCard'
 import ActivityList from '@/components/dashboard/ActivityList'
 import MiniBarChart from '@/components/dashboard/MiniBarChart'
 import TakeAttendance from '@/components/dashboard/attendance/TakeAttendance'
+import NotesAssignments from '@/components/dashboard/teacher/NotesAssignments'
+import QuizzesExams from '@/components/dashboard/teacher/QuizzesExams'
+import OnlineMarking from '@/components/dashboard/teacher/OnlineMarking'
+import GradingComments from '@/components/dashboard/teacher/GradingComments'
+import TeacherReportCards from '@/components/dashboard/teacher/TeacherReportCards'
+import PerformanceAnalytics from '@/components/dashboard/teacher/PerformanceAnalytics'
+import ParentMessaging from '@/components/dashboard/teacher/ParentMessaging'
 import { teacherData } from '@/data/dashboardData'
 
 const icons = [CalendarCheck, UploadCloud, FilePlus2, CheckSquare, ClipboardCheck, Award, BarChart3, MessagesSquare]
-
-// navItems[0] is "Overview"; capability id 1 ("Digital Attendance")
-// is navItems index 1 — that's the ATTENDANCE_INDEX below.
-const ATTENDANCE_INDEX = 1
 
 const navItems = [
   { label: 'Overview', icon: LayoutDashboard },
   ...teacherData.capabilities.map((c, i) => ({ label: c.title, icon: icons[i % icons.length] })),
 ]
+
+// navItems[0] is "Overview"; every item after that lines up 1:1 with
+// teacherData.capabilities by id (capability id 1 -> navItems index 1,
+// and so on), so this map is just "capability id -> section component".
+const sections: Record<number, ReactNode> = {
+  1: <TakeAttendance />,
+  2: <NotesAssignments />,
+  3: <QuizzesExams />,
+  4: <OnlineMarking />,
+  5: <GradingComments />,
+  6: <TeacherReportCards />,
+  7: <PerformanceAnalytics />,
+  8: <ParentMessaging />,
+}
 
 function Overview({ goTo }: { goTo: (index: number) => void }) {
   return (
@@ -72,8 +90,7 @@ export default function TeacherDashboard() {
     <DashboardLayout roleLabel="Teacher" userName="Mr. Femi Adisa" navItems={navItems}>
       {(active, goTo) => {
         if (active === 0) return <Overview goTo={goTo} />
-        if (active === ATTENDANCE_INDEX) return <TakeAttendance />
-        return <SectionPlaceholder label={navItems[active].label} />
+        return sections[active] ?? <SectionPlaceholder label={navItems[active].label} />
       }}
     </DashboardLayout>
   )

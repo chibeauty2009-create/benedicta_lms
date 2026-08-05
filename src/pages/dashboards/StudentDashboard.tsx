@@ -1,3 +1,4 @@
+import { type ReactNode } from 'react'
 import {
   Award,
   Bell,
@@ -14,6 +15,14 @@ import StatCard from '@/components/dashboard/StatCard'
 import CapabilityCard from '@/components/dashboard/CapabilityCard'
 import ActivityList from '@/components/dashboard/ActivityList'
 import MiniBarChart from '@/components/dashboard/MiniBarChart'
+import SubjectsMaterials from '@/components/dashboard/student/SubjectsMaterials'
+import AssignmentSubmission from '@/components/dashboard/student/AssignmentSubmission'
+import OnlineQuizzes from '@/components/dashboard/student/OnlineQuizzes'
+import CBTExaminations from '@/components/dashboard/student/CBTExaminations'
+import AttendanceRecords from '@/components/dashboard/student/AttendanceRecords'
+import ReportCardsResults from '@/components/dashboard/student/ReportCardsResults'
+import NotificationsSection from '@/components/dashboard/student/NotificationsSection'
+import LearningResources from '@/components/dashboard/student/LearningResources'
 import { studentData } from '@/data/dashboardData'
 
 const icons = [BookOpen, UploadCloud, ListChecks, MonitorCheck, CalendarCheck, Award, Bell, Download]
@@ -22,6 +31,20 @@ const navItems = [
   { label: 'Overview', icon: LayoutDashboard },
   ...studentData.capabilities.map((c, i) => ({ label: c.title, icon: icons[i % icons.length] })),
 ]
+
+// navItems[0] is "Overview"; every item after that lines up 1:1 with
+// studentData.capabilities by id (capability id 1 -> navItems index 1,
+// and so on), so this map is just "capability id -> section component".
+const sections: Record<number, ReactNode> = {
+  1: <SubjectsMaterials />,
+  2: <AssignmentSubmission />,
+  3: <OnlineQuizzes />,
+  4: <CBTExaminations />,
+  5: <AttendanceRecords />,
+  6: <ReportCardsResults />,
+  7: <NotificationsSection />,
+  8: <LearningResources />,
+}
 
 function Overview({ goTo }: { goTo: (index: number) => void }) {
   return (
@@ -67,7 +90,7 @@ export default function StudentDashboard() {
     <DashboardLayout roleLabel="Student" userName="Chidinma E." navItems={navItems}>
       {(active, goTo) => {
         if (active === 0) return <Overview goTo={goTo} />
-        return <SectionPlaceholder label={navItems[active].label} />
+        return sections[active] ?? <SectionPlaceholder label={navItems[active].label} />
       }}
     </DashboardLayout>
   )
