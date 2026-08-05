@@ -569,3 +569,161 @@ export const parentData = {
     ],
   },
 }
+
+// Parent: the children linked to this parent account.
+export const parentChildren = [
+  { id: 1, name: 'Chidinma Eze', cls: 'SS3' },
+  { id: 2, name: 'Ngozi Eze', cls: 'JSS2' },
+]
+
+// Parent: Academic Progress, keyed by child id.
+export const parentAcademic: Record<number, { average: number; position: string; chart: { label: string; data: { label: string; value: number }[] } }> = {
+  1: {
+    average: 78,
+    position: '4th of 71',
+    chart: {
+      label: 'Score trend this term',
+      data: [
+        { label: 'CA1', value: 68 },
+        { label: 'CA2', value: 74 },
+        { label: 'CA3', value: 79 },
+        { label: 'Exam', value: 82 },
+      ],
+    },
+  },
+  2: {
+    average: 71,
+    position: '12th of 88',
+    chart: {
+      label: 'Score trend this term',
+      data: [
+        { label: 'CA1', value: 65 },
+        { label: 'CA2', value: 69 },
+        { label: 'CA3', value: 72 },
+        { label: 'Exam', value: 74 },
+      ],
+    },
+  },
+}
+
+// Parent: Report Cards & Results, keyed by child id.
+export const parentReportCards: Record<number, typeof studentReportCards> = {
+  1: studentReportCards,
+  2: [
+    {
+      id: 1,
+      term: 'Second Term, 2025/2026',
+      average: 71,
+      position: '12th of 88',
+      status: 'Available',
+      subjects: [
+        { subject: 'Mathematics', score: 68 },
+        { subject: 'English Language', score: 73 },
+        { subject: 'Basic Science', score: 74 },
+        { subject: 'Social Studies', score: 70 },
+      ],
+    },
+  ],
+}
+
+// Parent: Examination Results, keyed by child id.
+export const parentExamResults: Record<number, { id: number; exam: string; subject: string; score: string; date: string }[]> = {
+  1: [
+    { id: 1, exam: 'Mock WASSCE — Paper 1', subject: 'Mathematics', score: '78%', date: 'Aug 6, 2026' },
+    { id: 2, exam: 'English Language CBT', subject: 'English Language', score: '82%', date: 'Jul 30, 2026' },
+    { id: 3, exam: 'First Term Final Examination', subject: 'All Subjects', score: '74% avg.', date: 'Jul 20, 2026' },
+  ],
+  2: [
+    { id: 1, exam: 'Basic Science Mid-Term Test', subject: 'Basic Science', score: '70%', date: 'Aug 4, 2026' },
+    { id: 2, exam: 'First Term Final Examination', subject: 'All Subjects', score: '71% avg.', date: 'Jul 20, 2026' },
+  ],
+}
+
+// Parent: Attendance Records, keyed by child id.
+export const parentAttendance: Record<number, typeof studentAttendance> = {
+  1: studentAttendance,
+  2: {
+    summary: [
+      { label: 'Attendance Rate', value: '92%' },
+      { label: 'Days Present', value: '51' },
+      { label: 'Days Absent', value: '4' },
+      { label: 'Days Late', value: '2' },
+    ],
+    records: [
+      { id: 1, date: 'Aug 4, 2026', status: 'Present' },
+      { id: 2, date: 'Aug 3, 2026', status: 'Late' },
+      { id: 3, date: 'Jul 31, 2026', status: 'Present' },
+      { id: 4, date: 'Jul 30, 2026', status: 'Absent' },
+      { id: 5, date: 'Jul 29, 2026', status: 'Present' },
+    ],
+  },
+}
+
+// Parent: Teacher Comments, keyed by child id.
+export const parentComments: Record<number, { id: number; teacher: string; subject: string; comment: string; date: string }[]> = {
+  1: [
+    { id: 1, teacher: 'Mr. Femi Adisa', subject: 'Mathematics', comment: 'Chidinma is excelling — consistently among the top scorers this term.', date: 'Aug 3, 2026' },
+    { id: 2, teacher: 'Mrs. Ibe', subject: 'Biology', comment: 'Good grasp of concepts. Encourage more practice with diagrams.', date: 'Jul 28, 2026' },
+  ],
+  2: [
+    { id: 1, teacher: 'Mr. Okafor', subject: 'English Language', comment: 'Ngozi participates well in class but should read more at home.', date: 'Aug 1, 2026' },
+  ],
+}
+
+// Parent: School Notifications (school-wide, not child-specific).
+export const parentNotifications = [
+  { id: 1, title: 'Second Term Examination Timetable Released', time: '2 weeks ago', read: true },
+  { id: 2, title: 'Founders Day Celebration — Aug 25', time: '3 days ago', read: false },
+  { id: 3, title: 'Third Term Resumption Date Confirmed', time: '1 week ago', read: true },
+  { id: 4, title: 'Parent–Teacher Conference — Aug 9', time: '4 days ago', read: false },
+]
+
+// Parent: Message Teachers — an inbox with the teachers of the parent's children.
+export const parentConversations = [
+  {
+    id: 1,
+    teacher: 'Mr. Femi Adisa',
+    subject: 'Mathematics',
+    unread: false,
+    messages: [
+      { id: 1, from: 'parent', text: 'Good evening, how did Chidinma do in the last quiz?', time: '5:12 PM' },
+      { id: 2, from: 'teacher', text: 'Good evening ma. She scored 18/20 — one of the best in class.', time: '5:20 PM' },
+    ],
+  },
+  {
+    id: 2,
+    teacher: 'Mrs. Ibe',
+    subject: 'Biology',
+    unread: true,
+    messages: [{ id: 1, from: 'teacher', text: 'Please remind Chidinma to bring her lab coat on Thursday.', time: 'Yesterday' }],
+  },
+  {
+    id: 3,
+    teacher: 'Mr. Okafor',
+    subject: 'English Language (Ngozi)',
+    unread: false,
+    messages: [
+      { id: 1, from: 'parent', text: 'Could Ngozi get some extra reading materials?', time: '2 days ago' },
+      { id: 2, from: 'teacher', text: 'Of course — I\u2019ll send a reading list home with her tomorrow.', time: '2 days ago' },
+    ],
+  },
+]
+
+// Parent: Pay School Fees, keyed by child id.
+export const parentFees: Record<number, { term: string; expected: number; paid: number; history: { id: number; date: string; amount: number; method: string }[] }> = {
+  1: {
+    term: 'Second Term, 2025/2026',
+    expected: 450000,
+    paid: 450000,
+    history: [
+      { id: 1, date: 'Jul 2, 2026', amount: 450000, method: 'Bank Transfer' },
+      { id: 2, date: 'Mar 28, 2026', amount: 420000, method: 'Card Payment' },
+    ],
+  },
+  2: {
+    term: 'Second Term, 2025/2026',
+    expected: 380000,
+    paid: 200000,
+    history: [{ id: 1, date: 'Jul 15, 2026', amount: 200000, method: 'Bank Transfer' }],
+  },
+}

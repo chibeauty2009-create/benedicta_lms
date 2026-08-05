@@ -37,7 +37,7 @@ export default function Accreditation() {
             Ready to take the next step?
           </h3>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button to="/contact" variant="primary">
+            <Button to="/apply" variant="primary">
               Apply Now <ArrowRight size={16} />
             </Button>
             <Button to="/login" variant="ghost">

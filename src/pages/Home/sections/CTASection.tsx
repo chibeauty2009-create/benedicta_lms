@@ -17,7 +17,7 @@ export default function CTASection() {
             </p>
           </div>
           <div className="flex shrink-0 flex-wrap justify-center gap-4">
-            <Button to="/about" variant="primary">
+            <Button to="/apply" variant="primary">
               Apply Now <ArrowRight size={16} />
             </Button>
             <Button to="/contact" variant="ghost" className="border-ink-500 text-paper hover:border-brass-300 hover:text-brass-300">

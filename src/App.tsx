@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer'
 import Home from '@/pages/Home/Home'
 import About from '@/pages/About/About'
 import Contact from '@/pages/Contact/Contact'
+import Apply from '@/pages/Apply/Apply'
 import Login from '@/pages/Login/Login'
 import SuperAdminDashboard from '@/pages/dashboards/SuperAdminDashboard'
 import TeacherDashboard from '@/pages/dashboards/TeacherDashboard'
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/apply" element={<Apply />} />
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard/admin" element={<SuperAdminDashboard />} />
           <Route path="/dashboard/teacher" element={<TeacherDashboard />} />
