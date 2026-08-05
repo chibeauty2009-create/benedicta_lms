@@ -111,6 +111,178 @@ export const studentData = {
   },
 }
 
+// Admin: school-wide attendance overview, one row per class.
+export const adminAttendance = {
+  date: 'Wednesday, August 5, 2026',
+  summary: [
+    { label: 'School-wide Rate', value: '93%' },
+    { label: 'Present Today', value: '1,153' },
+    { label: 'Absent Today', value: '87' },
+    { label: 'Classes Yet to Submit', value: '2' },
+  ],
+  classes: [
+    { id: 1, name: 'JSS1', teacher: 'Mrs. Bello', enrolled: 96, present: 92, rate: 96 },
+    { id: 2, name: 'JSS2', teacher: 'Mr. Okafor', enrolled: 88, present: 81, rate: 92 },
+    { id: 3, name: 'JSS3', teacher: 'Mrs. Ibe', enrolled: 90, present: 80, rate: 89 },
+    { id: 4, name: 'SS1 Silver', teacher: 'Mr. Femi Adisa', enrolled: 74, present: 70, rate: 95 },
+    { id: 5, name: 'SS2 Gold', teacher: 'Mrs. Okonkwo', enrolled: 68, present: 62, rate: 91 },
+    { id: 6, name: 'SS3', teacher: 'Mr. Danladi', enrolled: 71, present: 69, rate: 97, submitted: false },
+  ],
+}
+
+// Teacher: roster for the class currently being marked.
+export const teacherClasses = ['SS1 Silver', 'SS2 Gold', 'JSS3 Blue', 'JSS2 Green']
+
+export const teacherRoster = [
+  { id: 1, name: 'Chidinma Eze' },
+  { id: 2, name: 'Tobi Alade' },
+  { id: 3, name: 'David Okon' },
+  { id: 4, name: 'Amara Nwachukwu' },
+  { id: 5, name: 'Kelechi Obi' },
+  { id: 6, name: 'Fatima Suleiman' },
+  { id: 7, name: 'Emeka Chukwu' },
+  { id: 8, name: 'Blessing Udo' },
+]
+
+// Admin: People — Students, Teachers & Parents.
+export const peopleData = {
+  students: [
+    { id: 1, name: 'Chidinma Eze', cls: 'SS3', guardian: 'Mrs. Adaeze Okonkwo', status: 'Active' },
+    { id: 2, name: 'Tobi Alade', cls: 'JSS1', guardian: 'Mr. Kunle Alade', status: 'Active' },
+    { id: 3, name: 'David Okon', cls: 'SS1 Silver', guardian: 'Mrs. Grace Okon', status: 'Active' },
+    { id: 4, name: 'Amara Nwachukwu', cls: 'JSS3', guardian: 'Mr. Peter Nwachukwu', status: 'Active' },
+    { id: 5, name: 'Kelechi Obi', cls: 'SS2 Gold', guardian: 'Mrs. Ifeoma Obi', status: 'On Leave' },
+  ],
+  teachers: [
+    { id: 1, name: 'Mr. Femi Adisa', subject: 'Mathematics', classes: 4, status: 'Active' },
+    { id: 2, name: 'Mrs. Bello', subject: 'Chemistry', classes: 3, status: 'Active' },
+    { id: 3, name: 'Mr. Okafor', subject: 'English Language', classes: 5, status: 'Active' },
+    { id: 4, name: 'Mrs. Ibe', subject: 'Biology', classes: 3, status: 'Active' },
+    { id: 5, name: 'Mr. Danladi', subject: 'Physics', classes: 2, status: 'On Leave' },
+  ],
+  parents: [
+    { id: 1, name: 'Mrs. Adaeze Okonkwo', children: 'Chidinma Eze', contact: '+234 801 111 2222', status: 'Active' },
+    { id: 2, name: 'Mr. Kunle Alade', children: 'Tobi Alade', contact: '+234 802 222 3333', status: 'Active' },
+    { id: 3, name: 'Mrs. Grace Okon', children: 'David Okon', contact: '+234 803 333 4444', status: 'Active' },
+    { id: 4, name: 'Mr. Peter Nwachukwu', children: 'Amara Nwachukwu', contact: '+234 804 444 5555', status: 'Active' },
+  ],
+}
+
+// Admin: Classes & Subjects.
+export const classesSubjectsData = {
+  classes: [
+    { id: 1, name: 'JSS1', teacher: 'Mrs. Bello', students: 96, subjects: 10 },
+    { id: 2, name: 'JSS2', teacher: 'Mr. Okafor', students: 88, subjects: 10 },
+    { id: 3, name: 'JSS3', teacher: 'Mrs. Ibe', students: 90, subjects: 11 },
+    { id: 4, name: 'SS1 Silver', teacher: 'Mr. Femi Adisa', students: 74, subjects: 9 },
+    { id: 5, name: 'SS2 Gold', teacher: 'Mrs. Okonkwo', students: 68, subjects: 9 },
+    { id: 6, name: 'SS3', teacher: 'Mr. Danladi', students: 71, subjects: 8 },
+  ],
+  subjects: [
+    { id: 1, name: 'Mathematics', department: 'Science', classes: 6, teachers: 3 },
+    { id: 2, name: 'English Language', department: 'Arts', classes: 6, teachers: 2 },
+    { id: 3, name: 'Chemistry', department: 'Science', classes: 4, teachers: 1 },
+    { id: 4, name: 'Biology', department: 'Science', classes: 4, teachers: 1 },
+    { id: 5, name: 'Government', department: 'Arts', classes: 3, teachers: 1 },
+    { id: 6, name: 'Financial Accounting', department: 'Commercial', classes: 2, teachers: 1 },
+  ],
+}
+
+// Admin: Teacher Assignments.
+export const teacherAssignmentsData = [
+  { id: 1, teacher: 'Mr. Femi Adisa', subject: 'Mathematics', classes: ['SS1 Silver', 'SS2 Gold', 'SS3'], periods: 18 },
+  { id: 2, teacher: 'Mrs. Bello', subject: 'Chemistry', classes: ['SS1 Silver', 'SS2 Gold'], periods: 14 },
+  { id: 3, teacher: 'Mr. Okafor', subject: 'English Language', classes: ['JSS1', 'JSS2', 'JSS3'], periods: 20 },
+  { id: 4, teacher: 'Mrs. Ibe', subject: 'Biology', classes: ['SS1 Silver', 'SS3'], periods: 12 },
+  { id: 5, teacher: 'Mr. Danladi', subject: 'Physics', classes: ['SS2 Gold', 'SS3'], periods: 12 },
+]
+
+// Admin: Admissions & Fees.
+export const admissionsData = {
+  pipeline: [
+    { stage: 'Enquiry', count: 41 },
+    { stage: 'Application', count: 24 },
+    { stage: 'Interview', count: 13 },
+    { stage: 'Offer Sent', count: 8 },
+    { stage: 'Enrolled', count: 5 },
+  ],
+  recent: [
+    { id: 1, name: 'Tobi Alade', cls: 'JSS1', stage: 'Enrolled', date: 'Aug 3, 2026' },
+    { id: 2, name: 'Zainab Musa', cls: 'SS1', stage: 'Offer Sent', date: 'Aug 2, 2026' },
+    { id: 3, name: 'Emeka Chukwu', cls: 'JSS2', stage: 'Interview', date: 'Jul 31, 2026' },
+    { id: 4, name: 'Blessing Udo', cls: 'JSS1', stage: 'Application', date: 'Jul 29, 2026' },
+  ],
+  fees: [
+    { id: 1, cls: 'JSS1', expected: '₦9.6M', collected: '₦9.1M', rate: 95 },
+    { id: 2, cls: 'JSS2', expected: '₦8.8M', collected: '₦7.9M', rate: 90 },
+    { id: 3, cls: 'SS1 Silver', expected: '₦8.1M', collected: '₦6.7M', rate: 83 },
+    { id: 4, cls: 'SS2 Gold', expected: '₦7.4M', collected: '₦7.0M', rate: 95 },
+    { id: 5, cls: 'SS3', expected: '₦7.9M', collected: '₦5.6M', rate: 71 },
+  ],
+}
+
+// Admin: Examinations.
+export const examinationsData = [
+  { id: 1, name: 'Second Term Mid-Term Test', cls: 'All Classes', date: 'Aug 11, 2026', status: 'Scheduled' },
+  { id: 2, name: 'Mathematics — SS3 Mock WASSCE', cls: 'SS3', date: 'Aug 14, 2026', status: 'Scheduled' },
+  { id: 3, name: 'English Language CBT', cls: 'JSS1 – JSS3', date: 'Aug 6, 2026', status: 'Ongoing' },
+  { id: 4, name: 'First Term Final Examination', cls: 'All Classes', date: 'Jul 20, 2026', status: 'Marking' },
+  { id: 5, name: 'Chemistry Practical', cls: 'SS1, SS2', date: 'Jul 15, 2026', status: 'Completed' },
+]
+
+// Admin: Announcements.
+export const announcementsData = [
+  {
+    id: 1,
+    title: 'Second Term Examination Timetable Released',
+    audience: 'All Students & Parents',
+    date: 'Jul 22, 2026',
+    excerpt: 'The full CBT and written examination schedule is now available on your dashboard.',
+  },
+  {
+    id: 2,
+    title: 'Founders Day Rehearsal — All Staff',
+    audience: 'Teaching Staff',
+    date: 'Jul 18, 2026',
+    excerpt: 'Rehearsal holds Thursday, 3:00 PM at the school auditorium. Attendance required.',
+  },
+  {
+    id: 3,
+    title: 'Third Term Resumption Date Confirmed',
+    audience: 'All Students & Parents',
+    date: 'Jul 10, 2026',
+    excerpt: 'Students are expected back on campus by 8:00 AM on the resumption date.',
+  },
+]
+
+export const announcementAudiences = [
+  'All Students & Parents',
+  'Teaching Staff',
+  'Non-Teaching Staff',
+  'A Specific Class',
+]
+
+// Admin: Report Cards.
+export const reportCardsData = [
+  { id: 1, cls: 'JSS1', term: 'Second Term, 2025/2026', generated: 96, total: 96, status: 'Ready' },
+  { id: 2, cls: 'JSS2', term: 'Second Term, 2025/2026', generated: 88, total: 88, status: 'Ready' },
+  { id: 3, cls: 'JSS3', term: 'Second Term, 2025/2026', generated: 74, total: 90, status: 'Pending' },
+  { id: 4, cls: 'SS1 Silver', term: 'Second Term, 2025/2026', generated: 0, total: 74, status: 'Not Started' },
+  { id: 5, cls: 'SS2 Gold', term: 'Second Term, 2025/2026', generated: 68, total: 68, status: 'Ready' },
+  { id: 6, cls: 'SS3', term: 'Second Term, 2025/2026', generated: 71, total: 71, status: 'Ready' },
+]
+
+// Admin: Website Content.
+export const websiteContentData = [
+  { id: 1, section: 'Home — Hero & Stats', page: 'Home', updated: '3 days ago' },
+  { id: 2, section: 'News & Announcements', page: 'Home', updated: '1 day ago' },
+  { id: 3, section: 'Upcoming Events', page: 'Home', updated: '5 days ago' },
+  { id: 4, section: 'Academic Programs', page: 'Home', updated: '2 weeks ago' },
+  { id: 5, section: 'Gallery & Testimonials', page: 'Home', updated: '2 weeks ago' },
+  { id: 6, section: 'School History & Leadership', page: 'About', updated: '1 month ago' },
+  { id: 7, section: 'Contact Details & Map', page: 'Contact', updated: '1 month ago' },
+]
+
 export const parentData = {
   stats: [
     { label: 'Children Linked', value: '2' },

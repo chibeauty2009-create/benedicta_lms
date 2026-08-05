@@ -8,19 +8,31 @@ export interface DashboardNavItem {
   icon: LucideIcon
 }
 
+export function SectionPlaceholder({ label }: { label: string }) {
+  return (
+    <div className="flex min-h-[50vh] flex-col items-center justify-center rounded-2xl border border-dashed border-ink-200 bg-paper text-center">
+      <p className="eyebrow">Coming soon</p>
+      <h2 className="mt-3 font-display text-2xl font-semibold text-ink-900">{label}</h2>
+      <p className="mt-2 max-w-sm text-sm text-ink-500">
+        This section isn't built out yet — check back once it's next in line.
+      </p>
+    </div>
+  )
+}
+
 interface DashboardLayoutProps {
   roleLabel: string
   userName: string
   navItems: DashboardNavItem[]
-  children: (goToSection: (index: number) => void) => ReactNode
+  children: (activeIndex: number, goToSection: (index: number) => void) => ReactNode
 }
 
 /**
  * Shared shell for every role dashboard: sidebar nav + topbar +
- * content area. Only the first nav item ("Overview") renders real
- * content (passed in as `children`); the rest show a lightweight
- * "section coming soon" panel — swap those in one at a time as each
- * capability gets built out.
+ * content area. What renders for each sidebar item is entirely up to
+ * the dashboard page — pass a function as `children` that switches on
+ * `activeIndex` and returns real content for sections you've built
+ * out, falling back to the exported `SectionPlaceholder` for the rest.
  */
 export default function DashboardLayout({ roleLabel, userName, navItems, children }: DashboardLayoutProps) {
   const [active, setActive] = useState(0)
@@ -130,22 +142,7 @@ export default function DashboardLayout({ roleLabel, userName, navItems, childre
         </header>
 
         {/* Content */}
-        <main className="flex-1 px-6 py-8">
-          {active === 0 ? (
-            children((index) => setActive(index))
-          ) : (
-            <div className="flex min-h-[50vh] flex-col items-center justify-center rounded-2xl border border-dashed border-ink-200 bg-paper text-center">
-              <p className="eyebrow">Coming soon</p>
-              <h2 className="mt-3 font-display text-2xl font-semibold text-ink-900">
-                {activeItem.label}
-              </h2>
-              <p className="mt-2 max-w-sm text-sm text-ink-500">
-                This section isn't built out yet — the Overview tab is the one with working content
-                so far.
-              </p>
-            </div>
-          )}
-        </main>
+        <main className="flex-1 px-6 py-8">{children(active, (index) => setActive(index))}</main>
       </div>
     </div>
   )
