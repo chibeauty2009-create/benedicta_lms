@@ -1,7 +1,15 @@
 import { type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Award,
+  BarChart3,
+  Bell,
+  BookOpen,
+  Building2,
+  Bus,
   ClipboardList,
+  CreditCard,
+  Fingerprint,
   Globe,
   LayoutDashboard,
   LayoutGrid,
@@ -9,6 +17,8 @@ import {
   ScrollText,
   UserCheck,
   Users,
+  Users2,
+  Video,
   Wallet,
 } from 'lucide-react'
 import DashboardLayout, { SectionPlaceholder } from '@/components/dashboard/DashboardLayout'
@@ -28,6 +38,20 @@ import WebsiteContent from '@/components/dashboard/admin/WebsiteContent'
 import { adminData } from '@/data/dashboardData'
 
 const icons = [Users, LayoutGrid, UserCheck, Wallet, ClipboardList, ScrollText, Megaphone, Award, Globe]
+
+// Phase 2 modules — each is its own standalone dashboard (own route,
+// own sidebar), linked from here rather than nested in this sidebar.
+const futureModules = [
+  { name: 'AI Student Analytics', path: '/dashboard/analytics', icon: BarChart3 },
+  { name: 'SMS & Email Notifications', path: '/dashboard/notifications', icon: Bell },
+  { name: 'Fee Payment Gateway', path: '/dashboard/payments', icon: CreditCard },
+  { name: 'Virtual Classrooms', path: '/dashboard/virtual-classrooms', icon: Video },
+  { name: 'Video Conferencing', path: '/dashboard/video-conferencing', icon: Users2 },
+  { name: 'Biometric Attendance', path: '/dashboard/biometric-attendance', icon: Fingerprint },
+  { name: 'Library Management', path: '/dashboard/library', icon: BookOpen },
+  { name: 'Hostel Management', path: '/dashboard/hostel', icon: Building2 },
+  { name: 'Transport Management', path: '/dashboard/transport', icon: Bus },
+]
 
 const navItems = [
   { label: 'Overview', icon: LayoutDashboard },
@@ -82,6 +106,33 @@ function Overview({ goTo }: { goTo: (index: number) => void }) {
         </div>
         <div className="lg:col-span-3">
           <ActivityList items={adminData.activity} />
+        </div>
+      </div>
+
+      <div>
+        <div className="flex items-center justify-between">
+          <div>
+            <h2 className="font-display text-lg font-semibold text-ink-900">
+              Future Enhancements <span className="text-ink-400">· Phase 2</span>
+            </h2>
+            <p className="mt-1 text-sm text-ink-500">
+              Each of these has its own standalone dashboard, separate from the sections above.
+            </p>
+          </div>
+        </div>
+        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {futureModules.map((mod) => (
+            <Link
+              key={mod.path}
+              to={mod.path}
+              className="group flex items-center gap-4 rounded-2xl border border-ink-100 bg-paper p-5 transition-all hover:-translate-y-1 hover:border-brass-300 hover:shadow-seal"
+            >
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-ink-900 text-brass-300 transition-colors group-hover:bg-brass-400 group-hover:text-ink-900">
+                <mod.icon size={16} />
+              </div>
+              <span className="font-display text-sm font-semibold text-ink-900">{mod.name}</span>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
